@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  SiLeetcode,
+  SiCodechef,
+  SiCodeforces,
+  SiGeeksforgeeks,
+} from "react-icons/si";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,6 +91,39 @@ const Navbar = () => {
           >
             <FaLinkedin size={24} />
           </a>
+          <p className="text-[1rem]"> | </p>
+          <a
+            href="https://leetcode.com/u/nemweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <SiLeetcode size={24} />
+          </a>
+          <a
+            href="https://www.codechef.com/users/nemweb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <SiCodechef size={24} />
+          </a>
+          <a
+            href="https://codeforces.com/profile/nemweb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <SiCodeforces size={24} />
+          </a>
+          <a
+            href="https://www.geeksforgeeks.org/user/nemweb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <SiGeeksforgeeks size={24} />
+          </a>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -135,6 +174,39 @@ const Navbar = () => {
                 className="text-gray-300 hover:text-white"
               >
                 <FaLinkedin size={24} />
+              </a>
+              <p className="text-[1rem]"> | </p>
+              <a
+                href="https://leetcode.com/u/nemweb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#8245ec]"
+              >
+                <SiLeetcode size={24} />
+              </a>
+              <a
+                href="https://www.codechef.com/users/nemweb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#8245ec]"
+              >
+                <SiCodechef size={24} />
+              </a>
+              <a
+                href="https://codeforces.com/profile/nemweb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#8245ec]"
+              >
+                <SiCodeforces size={24} />
+              </a>
+              <a
+                href="https://www.geeksforgeeks.org/user/nemweb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-[#8245ec]"
+              >
+                <SiGeeksforgeeks size={24} />
               </a>
             </div>
           </ul>

@@ -40,7 +40,7 @@ import jnvLogo from './assets/education_logo/jnvLogo.png';
 
 // Project Section Logo's
 import smartRouteLogo from './assets/work_logo/Smart-route.png';
-import easeAttendanceLogo from './assets/work_logo/Smart-route.png';
+import easeAttendanceLogo from './assets/work_logo/EaseAttendance.png';
 import spotifyCloneLogo from './assets/work_logo/Spotify-clone.png';
 import quickshowLogo from './assets/work_logo/MovieBooking.png';
 

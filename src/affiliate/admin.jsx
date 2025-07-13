@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import Navbar from "./Navbar";
 
-const GOOGLE_FORM_LINK = "https://forms.gle/YOUR_FORM_LINK_HERE"; // Replace with your form link
+const GOOGLE_FORM_LINK = "https://forms.gle/BF16w4dMtwGKJknYA"; // Replace with your form link
 
 const Admin = () => {
   const [formData, setFormData] = useState({
@@ -68,6 +68,8 @@ const Admin = () => {
   return (
     <>
       <Navbar />
+      
+
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="bg-white shadow-xl rounded-2xl w-full max-w-xl p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">

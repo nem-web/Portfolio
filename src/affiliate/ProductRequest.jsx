@@ -23,13 +23,14 @@ const ProductRequest = () => {
       await addDoc(collection(db, "affiliate_requests"), formData);
 
       // Send Email via backend
-      const res = await fetch("http://localhost:5000/send-email", {
+      const res = await fetch("https://nemweb-server.onrender.com/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
 
       const result = await res.json();
       if (!result.success) throw new Error("Email failed");

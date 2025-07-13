@@ -27,7 +27,7 @@ app.post("/send-email", async (req, res) => {
   try {
     await transporter.sendMail({
       from: process.env.VITE_SMTP_USER,
-      to: "kathariyanemchandra@gmail.com",
+      to: process.env.VITE_SMTP_ADMIN,
       subject: "📦 New Affiliate Link Request",
       html: `
         <h2>Affiliate Request</h2>

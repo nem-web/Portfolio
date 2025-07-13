@@ -33,17 +33,20 @@ const Admin = () => {
 
       // If requestedBy is a valid email, send email
       if (requestedBy && /\S+@\S+\.\S+/.test(requestedBy)) {
-        await fetch("http://localhost:5000/send-product-notification", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            to: requestedBy,
-            productName: formData.name,
-            formLink: GOOGLE_FORM_LINK,
-          }),
-        });
+        await fetch(
+          "https://nemweb-server.onrender.com/send-product-notification",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              to: requestedBy,
+              productName: formData.name,
+              formLink: GOOGLE_FORM_LINK,
+            }),
+          }
+        );
       }
 
       // Reset form

@@ -31,6 +31,11 @@ export default function HorizontalList() {
             Products
           </ListItemButton>
         </ListItem>
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="/request-product">
+            Request Product
+          </ListItemButton>
+        </ListItem>
 
         {isAdmin && (
           <>

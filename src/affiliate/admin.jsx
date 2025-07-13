@@ -4,8 +4,11 @@ import { collection, addDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import Navbar from "./Navbar";
 
+const GOOGLE_FORM_LINK = "https://forms.gle/YOUR_FORM_LINK_HERE"; // Replace with your form link
+
 const Admin = () => {
   const [formData, setFormData] = useState({
+    requestedBy: "",
     name: "",
     price: "",
     image: "",
@@ -21,10 +24,31 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const { requestedBy, ...productData } = formData;
+
     try {
-      await addDoc(collection(db, "products"), formData);
+      // Store product data in Firestore (excluding requestedBy)
+      await addDoc(collection(db, "products"), productData);
       toast.success("✅ Product added successfully!");
+
+      // If requestedBy is a valid email, send email
+      if (requestedBy && /\S+@\S+\.\S+/.test(requestedBy)) {
+        await fetch("http://localhost:5000/send-product-notification", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: requestedBy,
+            productName: formData.name,
+            formLink: GOOGLE_FORM_LINK,
+          }),
+        });
+      }
+
+      // Reset form
       setFormData({
+        requestedBy: "",
         name: "",
         price: "",
         image: "",
@@ -48,6 +72,22 @@ const Admin = () => {
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Requested By Email (Optional) */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Requested By (Email)
+              </label>
+              <input
+                name="requestedBy"
+                value={formData.requestedBy}
+                onChange={handleChange}
+                type="email"
+                placeholder="Optional"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+
+            {/* Product Name */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Product Name
@@ -63,6 +103,7 @@ const Admin = () => {
               />
             </div>
 
+            {/* Price */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Price (₹)
@@ -78,6 +119,7 @@ const Admin = () => {
               />
             </div>
 
+            {/* Image URL */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Image URL
@@ -93,6 +135,7 @@ const Admin = () => {
               />
             </div>
 
+            {/* Category */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Category
@@ -113,6 +156,7 @@ const Admin = () => {
               </select>
             </div>
 
+            {/* Product URL */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Product URL
@@ -128,6 +172,7 @@ const Admin = () => {
               />
             </div>
 
+            {/* Platform */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Platform

@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./affiliate/Login";
 import DeleteProducts from "./affiliate/DeleteProducts";
+import ProductRequest from "./affiliate/ProductRequest";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/delete-products" element={<DeleteProducts />} />
+          <Route path="/request-product" element={<ProductRequest />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer position="top-right" autoClose={3000} />
